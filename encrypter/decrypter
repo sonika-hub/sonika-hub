@@ -1,0 +1,25 @@
+alphabets = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N',
+           'O','P','Q','R','S','T','U','V','W','X','Y','Z']
+def caser(ot,sn,dr):
+    output = ""
+    for i in ot:
+        if dr == "decode":
+           text = "dcrypted"
+           sp = alphabets.index(i) - sn
+        else:
+            text = "encrypted"         
+            sp = alphabets.index(i) + sn
+        sp %= len(alphabets)
+        output += alphabets[sp]
+    print(f"the {text} text is {output}")
+should_continue = True
+while should_continue:
+    c = input("enter the choice: encode or decode: ")
+    t = input("enter the text to be encrypted/decrypted: ")
+    n = int(input("enter the no of shifts: "))
+    caser(ot = t,sn = n,dr = c)
+    r = input("yes if you continue no if you want to exit: ")
+    if r == "no":
+        should_continue = False
+        print("goodbye")
+    
